@@ -1,6 +1,7 @@
 const express = require ('express');
 const app = express();
-const {animals} = require('/data/animals');
+const { animals } = require('./data/animals');
+
 
 //make sure this is at the end this is to chain the listen together
 app.listen(3001, () => {
@@ -8,5 +9,7 @@ app.listen(3001, () => {
   });
 
   app.get('/api/animals', (req, res) => {
+    let results = animals;
+    console.log(req.query)
     res.json(animals);
   });
